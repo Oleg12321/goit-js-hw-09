@@ -71,8 +71,8 @@ const images = [
 
 const galleryList = document.querySelector('ul.gallery');
 
-images.map(item => {
-  return (galleryList.innerHTML += `
+images.forEach(item => {
+  let galleryItem = `
         <li class="gallery-item">
             <a class="gallery-link" href=${item.original}>
                 <img
@@ -84,7 +84,9 @@ images.map(item => {
                 />
             </a>
         </li>
-    `);
+    `;
+    
+  galleryList.insertAdjacentHTML('afterbegin', galleryItem);
 });
 
 let lightbox = new SimpleLightbox('.gallery a', {

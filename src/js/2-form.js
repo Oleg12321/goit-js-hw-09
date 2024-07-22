@@ -17,8 +17,8 @@ if (savedSettings) {
 form.addEventListener('input', e => {
   e.preventDefault();
   formData = {
-    email: form.elements.email.value,
-    message: form.elements.message.value,
+    email: form.elements.email.value.trim(),
+    message: form.elements.message.value.trim(),
   };
   localStorage.setItem(localStorageKey, JSON.stringify(formData));
 });
